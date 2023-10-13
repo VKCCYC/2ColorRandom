@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #div {
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(rgb(128, 128, 128), aqua);
+      border: 1px solid;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="div"></div>
+  <br>
+  <span>紅色1</span>
+  <input type="range" id="red-range" min="0" max="255">
+  <span id="red-number">128</span>
+  <input type="button" value="隨機" id="rbtn">
+  <br>
+  <span>綠色1</span>
+  <input type="range" id="green-range" min="0" max="255">
+  <span id="green-number">128</span>
+  <input type="button" value="隨機" id="gbtn">
+  <br>
+  <span>藍色1</span>
+  <input type="range" id="blue-range" min="0" max="255">
+  <span id="blue-number">128</span>
+  <input type="button" value="隨機" id="bbtn">
+  <hr>
+
+
+  <span>漸變位置</span>
+  <input type="range" id="line" min="0" max="100">
+  <span id="line-number">50%</span>
+
+
+  <br>
+  <span>紅色2</span>
+  <input type="range" id="red-range01" min="0" max="255">
+  <span id="red-number01">128</span>
+  <input type="button" value="隨機" id="rbtn01">
+  <br>
+  <span>綠色2</span>
+  <input type="range" id="green-range01" min="0" max="255">
+  <span id="green-number01">128</span>
+  <input type="button" value="隨機" id="gbtn01">
+  <br>
+  <span>藍色2</span>
+  <input type="range" id="blue-range01" min="0" max="255">
+  <span id="blue-number01">128</span>
+  <input type="button" value="隨機" id="bbtn01">
+
+  <script>
+    const div = document.getElementById('div')
+
+    const rr = document.getElementById('red-range')
+    const gr = document.getElementById('green-range')
+    const br = document.getElementById('blue-range')
+    const rn = document.getElementById('red-number')
+    const gn = document.getElementById('green-number')
+    const bn = document.getElementById('blue-number')
+    const rb = document.getElementById('rbtn')
+    const gb = document.getElementById('gbtn')
+    const bb = document.getElementById('bbtn')
+
+    const rr01 = document.getElementById('red-range01')
+    const gr01 = document.getElementById('green-range01')
+    const br01 = document.getElementById('blue-range01')
+    const rn01 = document.getElementById('red-number01')
+    const gn01 = document.getElementById('green-number01')
+    const bn01 = document.getElementById('blue-number01')
+    const rb01 = document.getElementById('rbtn01')
+    const gb01 = document.getElementById('gbtn01')
+    const bb01 = document.getElementById('bbtn01')
+
+    const line = document.getElementById('line')
+    const ln = document.getElementById('line-number')
+
+    let numberColor = (() => {
+      div.style.background = `linear-gradient(${ln.value}deg,rgb(${rr.value}, ${gr.value}, ${br.value}),rgb(${rr01.value}, ${gr01.value}, ${br01.value})`
+    })
+
+
+    line.addEventListener('input', () => {
+      ln.innerText = event.target.value
+      let t = event.target.value
+      ln.value = t
+      numberColor()
+    })
+
+    rr.addEventListener('input', () => {
+      rn.innerText = event.target.value
+      numberColor()
+
+    })
+    rb.addEventListener('click', () => {
+      let m = Math.round(Math.random() * 255)
+      rr.value = m
+      rn.innerText = m
+      numberColor()
+
+    })
+    gr.addEventListener('input', () => {
+      gn.innerText = event.target.value
+      numberColor()
+
+    })
+    gb.addEventListener('click', () => {
+      let m = Math.round(Math.random() * 255)
+      gr.value = m
+      gn.innerText = m
+      numberColor()
+
+    })
+    br.addEventListener('input', () => {
+      bn.innerText = event.target.value
+      numberColor()
+
+    })
+    bb.addEventListener('click', () => {
+      let m = Math.round(Math.random() * 255)
+      br.value = m
+      bn.innerText = m
+      numberColor()
+    })
+
+
+    rr01.addEventListener('input', () => {
+      rn01.innerText = event.target.value
+      numberColor()
+
+    })
+    rb01.addEventListener('click', () => {
+      let m = Math.round(Math.random() * 255)
+      rr01.value = m
+      rn01.innerText = m
+      numberColor()
+
+    })
+    gr01.addEventListener('input', () => {
+      gn01.innerText = event.target.value
+      numberColor()
+
+    })
+    gb01.addEventListener('click', () => {
+      let m = Math.round(Math.random() * 255)
+      gr01.value = m
+      gn01.innerText = m
+      numberColor()
+
+    })
+    br01.addEventListener('input', () => {
+      bn01.innerText = event.target.value
+      numberColor()
+
+    })
+    bb01.addEventListener('click', () => {
+      let m = Math.round(Math.random() * 255)
+      br01.value = m
+      bn01.innerText = m
+      numberColor()
+    })
+
+
+  </script>
+</body>
+
+</html>
